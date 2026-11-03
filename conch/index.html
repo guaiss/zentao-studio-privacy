@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conch — Privacy Policy</title>
+<link rel="icon" href="zt.svg">
+<style>
+  :root{ --ink:#101C43; --muted:#526381; --accent:#075CDB; --line:#DFE7F3; --bg:#F3F6FC; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .brand img{width:34px;height:34px;border-radius:9px}
+  .brand b{font-size:18px}
+  h1{font-size:30px;line-height:1.2;margin:18px 0 4px}
+  h2{font-size:20px;margin:34px 0 10px;padding-top:10px;border-top:1px solid var(--line)}
+  a{color:var(--accent);word-break:break-word}
+  ul{padding-left:20px} li{margin:6px 0}
+  code{background:#e8f1f0;padding:1px 6px;border-radius:5px;font-size:.92em}
+  em{color:var(--muted)}
+  .foot{margin-top:40px;color:var(--muted);font-size:13px}
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#F3F6FF;--muted:#B5C3DC;--line:#354763;--bg:#0D1630;--accent:#A9C7FF}
+    code{background:#172322}
+  }
+</style></head><body><div class="wrap">
+<div class="brand"><img src="icon.png" alt=""><b>Conch</b></div>
+<h1>Conch — Privacy Policy</h1>
+<p><em>Last updated: 2026-11-01 · Publisher: ZenTao Studio</em></p>
+<p>Conch is an SSH terminal and SFTP client. Short version: <strong>Conch collects nothing about you.</strong>
+It has no account, no ads, no analytics and no crash-reporting SDKs.</p>
+<h2>What Conch sends, and to whom</h2>
+<p>Conch only opens connections that <strong>you</strong> ask for:</p>
+<ul>
+<li><strong>SSH and SFTP:</strong> to the servers you add or type, on the port you set, and to a jump host if you
+configured one. Everything in these connections is encrypted by the SSH protocol end to end
+between your phone and your server.</li>
+<li><strong>Port forwarding:</strong> to the destinations you configured, through your own server.</li>
+</ul>
+<p>Zentao Studio runs no servers that Conch talks to and receives none of this traffic.</p>
+<h2>What stays on your phone</h2>
+<p>Your hosts, keys, passwords, passphrases, snippets, trusted server fingerprints and settings.
+Passwords, private keys and passphrases are encrypted with a key held by the Android Keystore.
+All of it is excluded from Android cloud backup. It leaves the phone only if you export a
+backup file yourself; that file is encrypted with a password you choose, and Zentao Studio never
+sees it. Uninstalling Conch removes its private local data. Files explicitly exported
+remain at their chosen locations.</p>
+<p>Session recovery stores host references and a tmux session name, not terminal output or typed
+commands. After a process restart, you choose whether to reconnect.</p>
+<p>The transfer queue stores the source/destination paths, selected file URIs, progress and error
+state. Uploads may be staged as private local copies; downloads use private temporary files
+before saving to the location you chose. Interrupted copies remain available for retry until
+you dismiss the job or uninstall the app. Completed staging files are removed. Android may
+retain the file access permission you granted so a transfer can be retried. Interrupted uploads
+may leave a hidden <code>.conch-…part</code> file in the selected remote folder until successfully resumed.</p>
+<p>Optional app lock uses Android's device credential confirmation and blocks app screenshots.
+It protects access to the interface; it does not turn imported SSH keys into hardware-backed
+signing keys. Your selected keyboard may provide dictation or suggestions under its own
+privacy policy; Conch does not run a speech or hosted AI service.</p>
+<h2>Remote editor drafts</h2>
+<p>Remote editor drafts and their original bytes for conflict checks are encrypted locally
+with an Android Keystore AES-GCM key, outside Android and exported backups. Up to 32 drafts
+are retained until you save to the server or explicitly discard them; each edited document
+is limited to 512 KiB of UTF-8. Recovery is bound to its saved host and server/account and
+never uploads automatically. Edits newer than the last completed local save may be lost
+if the process is killed. Composer drafts remain in memory only. The Settings draft manager
+retains access to drafts from deleted hosts. Explicit text export creates an unencrypted copy
+at the chosen location; discarding removes only the local recovery copy.</p>
+<h2>Permissions</h2>
+<ul>
+<li><strong>Internet:</strong> to connect to your servers.</li>
+<li><strong>Foreground service and notifications:</strong> to keep open sessions connected while you use other
+apps, and to show the &quot;sessions open&quot; notification with a Disconnect button.</li>
+<li><strong>Wake lock (optional setting):</strong> to help reduce interruptions in deep sleep, at a battery cost.
+Conch asks for no location, contacts, storage, camera, microphone or phone permissions. Files you
+upload or download are chosen by you through Android's file picker.</li>
+</ul>
+<h2>Purchases</h2>
+<p>Conch Pro is bought through Google Play. Google processes the payment under its own privacy
+policy; Conch only learns whether the purchase exists.</p>
+<h2>Children</h2>
+<p>Conch is a tool for administering servers and is not directed at children.</p>
+<h2>Contact</h2>
+<p>zentaostudio@gmail.com</p>
+<p class="foot">ZenTao Studio · Tools that just work.</p></div></body></html>
