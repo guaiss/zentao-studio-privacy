@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hop — Privacy Policy</title>
+<link rel="icon" href="zt.svg">
+<style>
+  :root{ --ink:#14201f; --muted:#56676a; --accent:#075CDB; --line:#dfe9e8; --bg:#f6faf9; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .brand img{width:34px;height:34px;border-radius:9px}
+  .brand b{font-size:18px}
+  h1{font-size:30px;line-height:1.2;margin:18px 0 4px}
+  h2{font-size:20px;margin:34px 0 10px;padding-top:10px;border-top:1px solid var(--line)}
+  a{color:var(--accent);word-break:break-word}
+  ul{padding-left:20px} li{margin:6px 0}
+  code{background:#e8f1f0;padding:1px 6px;border-radius:5px;font-size:.92em}
+  em{color:var(--muted)}
+  .foot{margin-top:40px;color:var(--muted);font-size:13px}
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#e4ecea;--muted:#93a6a4;--line:#1f2c2b;--bg:#0d1414;--accent:#A9C7FF}
+    code{background:#172322}
+  }
+</style></head><body><div class="wrap">
+<div class="brand"><img src="zt.svg" alt=""><b>Hop</b></div>
+<h1>Hop — Privacy Policy</h1>
+<p><em>Last updated: 2026-10-29 · Publisher: ZenTao Studio</em></p>
+<p>Hop is a network diagnostics toolkit (traceroute/MTR, ping, TCP ping, DNS, whois, LAN devices, Wake-on-LAN). Short version: <b>Hop collects nothing about you.</b> It has no account, no ads, no analytics and no crash-reporting SDKs, and it never asks for your location.</p>
+<h2>What Hop sends, and to whom</h2>
+<p>Hop only sends network traffic when <b>you</b> start a tool, and only to the destinations that tool needs:</p>
+<ul>
+<li><b>Ping, traceroute, TCP ping, port scanner:</b> probes to the host you typed.
+<li><b>DNS lookup:</b> your question to the DNS server you chose (your network&#x27;s, or a public one such as Cloudflare 1.1.1.1, Google 8.8.8.8, Quad9 9.9.9.9, OpenDNS, AliDNS).
+<li><b>Router names and network owner (ASN)</b> shown in traceroute and IP info: reverse-DNS questions to your network&#x27;s DNS server and DNS questions to Team Cymru&#x27;s public IP-to-ASN service (<code>asn.cymru.com</code>) containing the router or host address.
+<li><b>&quot;Show my public IP&quot;:</b> one DNS question to OpenDNS (<code>myip.opendns.com</code>).
+<li><b>Whois:</b> the domain or address you entered, sent to <code>whois.iana.org</code> and the registry it refers to.
+<li><b>Devices on my network:</b> probes and name queries (mDNS, NetBIOS, reverse DNS) inside your own local network only.
+<li><b>Wake-on-LAN:</b> a broadcast packet on your local network.
+</ul>
+<p>These are standard internet protocols answered by those operators under their own policies. Hop adds no identifiers of its own and Zentao Studio receives none of this traffic.</p>
+<h2>What stays on your phone</h2>
+<p>The hosts you used recently (to offer them again) and the Wake-on-LAN devices you saved. They never leave the device and are excluded from cloud backup. Settings → Clear recent hosts removes the history; uninstalling Hop removes everything.</p>
+<h2>Permissions</h2>
+<p>Internet and network/Wi-Fi state (to run the tools and show network info) and Wi-Fi multicast (to hear device names announced over mDNS). No location, contacts, storage or phone permissions.</p>
+<h2>Purchases</h2>
+<p>Hop Pro is bought through Google Play. Google processes the payment under its own privacy policy; Hop only learns whether the purchase exists.</p>
+<h2>Children</h2>
+<p>Hop is not directed to children under 13.</p>
+<h2>Contact</h2>
+<p>zentaostudio@gmail.com — questions about this policy.</p>
+<p class="foot">© 2026 ZenTao Studio</p></div></body></html>
