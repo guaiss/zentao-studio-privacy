@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Conch — Privacy Policy</title>
+<title>TermSail — Privacy Policy</title>
 <link rel="icon" href="zt.svg">
 <style>
   :root{ --ink:#101C43; --muted:#526381; --accent:#075CDB; --line:#DFE7F3; --bg:#F3F6FC; }
@@ -25,18 +25,18 @@
     code{background:#172322}
   }
 </style></head><body><div class="wrap">
-<div class="brand"><img src="icon.png" alt=""><b>Conch</b></div>
-<h1>Conch — Privacy Policy</h1>
-<p><em>Last updated: 2026-11-21 · Publisher: ZenTao Studio</em></p>
-<p>Conch is an SSH terminal and SFTP client. <strong>ZenTao Studio receives no user data from Conch.</strong>
+<div class="brand"><img src="icon.png" alt=""><b>TermSail</b></div>
+<h1>TermSail — Privacy Policy</h1>
+<p><em>Last updated: 2026-11-23 · Publisher: ZenTao Studio</em></p>
+<p>TermSail (formerly Conch) is an SSH terminal and SFTP client. <strong>ZenTao Studio receives no user data from TermSail.</strong>
 It has no account, no ads, no analytics and no crash-reporting SDKs.</p>
-<h2>What Conch sends, and to whom</h2>
-<p>Conch only opens connections that <strong>you</strong> ask for:</p>
+<h2>What TermSail sends, and to whom</h2>
+<p>TermSail only opens connections that <strong>you</strong> ask for:</p>
 <ul>
 <li><strong>SSH and SFTP:</strong> to the servers you add or type, on the port you set, and to a jump host if you
 configured one. Everything in these connections is encrypted by the SSH protocol end to end
 between your phone and your server.</li>
-<li><strong>Mosh:</strong> if you switch a session to Mosh, Conch uses SSH to start the remote Mosh server.
+<li><strong>Mosh:</strong> if you switch a session to Mosh, TermSail uses SSH to start the remote Mosh server.
 The terminal then exchanges encrypted UDP traffic with that server. It can continue using
 the same remote shell when the phone changes networks and can still reach the server.</li>
 <li><strong>Port forwarding:</strong> to the destinations you configured, through your own server.</li>
@@ -45,19 +45,19 @@ of an approved emulator or USB Android device to the app over SSH. Your
 taps, drags and navigation commands go to that device through the same
 connection. Text you submit from the paste dialog goes to the approved emulator's clipboard
 over SSH for insertion into the focused field.
-Conch does not save the stream as a recording.</li>
-<li><strong>Pairing with key enrollment:</strong> when requested, Conch generates an SSH key on the phone
+TermSail does not save the stream as a recording.</li>
+<li><strong>Pairing with key enrollment:</strong> when requested, TermSail generates an SSH key on the phone
 and sends its public part over a temporary connection to your chosen server. The connection
 uses the certificate fingerprint from the pairing code. The private key stays in the vault.</li>
-<li><strong>Agent conversations:</strong> with the optional host helper, Conch reads recent conversation text
+<li><strong>Agent conversations:</strong> with the optional host helper, TermSail reads recent conversation text
 and sends the replies, images, answers and tool decisions you choose over the existing SSH
 connection. The coding agent on your host handles these according to its configuration,
-including any model provider you use. Conch reads a clipboard image only when you tap
+including any model provider you use. TermSail reads a clipboard image only when you tap
 <strong>Paste image</strong>. Unsubmitted Agent reply drafts and added images stay in app memory.
-After you submit a reply, answer, or approval decision, Conch
+After you submit a reply, answer, or approval decision, TermSail
 keeps the pending operation encrypted on this device with an Android Keystore key.
 You can review the pending action from the host's Inbox, including after the Agent task
-stops, and explicitly retry. Conch clears the record when it receives a final receipt or you
+stops, and explicitly retry. TermSail clears the record when it receives a final receipt or you
 discard it. These records are excluded from backups.
 The optional host helper also keeps receipt metadata and request hashes on your SSH
 host for recovery. It checks the Agent's own history when it needs to confirm delivery.
@@ -65,16 +65,16 @@ For eligible Claude file restores, the helper records a file digest on the host 
 verify an original binary backup. The digest is used only for local restore verification.</li>
 <li><strong>Agent usage</strong> can query rate limits through Codex, Pi or OpenCode on your SSH host.
 For a ChatGPT subscription in Pi or OpenCode 2, the host sends a read-only HTTPS request
-to ChatGPT using that agent's existing login. Conch receives usage windows, available
+to ChatGPT using that agent's existing login. TermSail receives usage windows, available
 account labels, OpenCode Console budget data and an opaque account key over SSH.
 The provider credential stays on the host.</li>
-<li><strong>Optional push notifications:</strong> if you enable a UnifiedPush distributor, Conch sends
+<li><strong>Optional push notifications:</strong> if you enable a UnifiedPush distributor, TermSail sends
 its subscription to your selected SSH host over SSH. The host sends an encrypted event
 containing a random event ID, status, timestamp and, when applicable, a flag for
 terminal-only tasks to the distributor's push server.
 That server can see routing metadata and delivery timing. Terminal output, conversation
 text, file paths and SSH credentials are excluded from the push payload. Your distributor
-and its push server follow their own privacy policies. You can turn off push in Conch.
+and its push server follow their own privacy policies. You can turn off push in TermSail.
 If multiple Android devices enable push on the same SSH host account, the host encrypts
 and sends a copy separately for each device. It stores a random registration ID and
 separate subscription for each. Turning off push on a connected device removes that
@@ -92,28 +92,28 @@ them as private notifications. The host keeps a token hash and recent delivery
 IDs for authentication and duplicate detection. Revoke the token on the host
 to clear pending external alerts.
 A job can include a pinned tmux or Herdr target in the encrypted notice.
-Conch uses the saved SSH address, account and host fingerprint to open that
+TermSail uses the saved SSH address, account and host fingerprint to open that
 terminal after a tap. The local recovery entry retains that binding.
 When the host operator enables an image origin and the job sends a screenshot
 link, its URL travels in the encrypted notice. Android fetches the image
 directly over HTTPS from the approved origin. That server receives the request
 and can see the device's network address and timing.</li>
 </ul>
-<p>Zentao Studio runs no servers that Conch talks to and receives none of this traffic.</p>
+<p>Zentao Studio runs no servers that TermSail talks to and receives none of this traffic.</p>
 <h2>What stays on your phone</h2>
 <p>Your hosts, keys, passwords, passphrases, snippets, public SSH certificates, directory bookmarks, trusted server fingerprints and settings.
-Passwords, private keys, passphrases and Conch's saved push subscription are encrypted with a
+Passwords, private keys, passphrases and TermSail's saved push subscription are encrypted with a
 key held by the Android Keystore.
 An optional biometric SSH key is generated in hardware-backed Android Keystore on supported
-devices. Android handles biometric verification for each SSH signature. Conch receives
+devices. Android handles biometric verification for each SSH signature. TermSail receives
 the authorization result and has no access to biometric samples or templates. The private
-key stays on the device. Conch backups include its public entry and host references.
+key stays on the device. TermSail backups include its public entry and host references.
 All of it is excluded from Android cloud backup. It leaves the phone only if you export a
 backup file yourself; that file is encrypted with a password you choose, and Zentao Studio never
-sees it. Uninstalling Conch removes its private local data.</p>
+sees it. Uninstalling TermSail removes its private local data.</p>
 <p>You may explicitly remember a command in the composer. This optional history is encrypted
 locally, limited to 100 commands per host, clearable, and excluded from exported backups.
-Conch does not automatically record raw terminal input, password prompts or shell output.
+TermSail does not automatically record raw terminal input, password prompts or shell output.
 Terminal search keeps a rendered text snapshot in memory; copying or exporting it is an
 explicit action. Exported text is plaintext at the location you choose. Remote editor drafts, including their original file bytes for conflict checks, are stored
 locally under a separate Android Keystore AES-GCM key, outside Android and exported backups.
@@ -125,7 +125,7 @@ when the process ends.</p>
 <p>The Settings draft manager retains drafts even after their hosts are deleted. You can
 explicitly export edited text using Android's file picker; this creates an unencrypted copy
 at the location you choose. Discard removes only the local recovery copy, never the remote
-file. Files you explicitly export remain at their chosen locations after uninstalling Conch.</p>
+file. Files you explicitly export remain at their chosen locations after uninstalling TermSail.</p>
 <p>Session recovery stores host references and tmux, Herdr or Zellij target identifiers.
 Zellij recovery also stores the selected server generation and verified SSH fingerprint.
 After a process restart, you choose whether to reconnect.</p>
@@ -138,12 +138,12 @@ may leave a hidden <code>.conch-…part</code> file in the selected remote folde
 <p>Optional app lock uses Android's device credential confirmation and blocks app screenshots.
 It protects access to the interface; it does not turn imported SSH keys into hardware-backed
 signing keys. Your selected keyboard may provide dictation or suggestions under its own
-privacy policy; Conch does not run a speech or hosted AI service.</p>
+privacy policy; TermSail does not run a speech or hosted AI service.</p>
 <h2>Permissions</h2>
 <ul>
 <li><strong>Internet:</strong> to connect to your servers.</li>
 <li><strong>Local network (Android 17 and later):</strong> to connect to a host on your local
-network when you choose to connect. Conch uses the address you select and
+network when you choose to connect. TermSail uses the address you select and
 does not scan for nearby devices.</li>
 <li><strong>Foreground service and notifications:</strong> to keep open sessions connected while you use other
 apps, and to show the &quot;sessions open&quot; notification with a Disconnect button.</li>
@@ -152,28 +152,28 @@ apps, and to show the &quot;sessions open&quot; notification with a Disconnect b
 <li><strong>Camera (optional):</strong> to scan a host pairing QR code when you tap Scan QR code. Camera frames and selected QR images are processed on the device and are never saved or uploaded. You can also paste a pairing code or choose a QR image without granting camera access.</li>
 <li><strong>Microphone (optional):</strong> when you start dictation. Android's on-device recognition
 and the offline Whisper and Parakeet engines keep recordings on the device.
-If you choose to install an offline model, Conch downloads it from Hugging
+If you choose to install an offline model, TermSail downloads it from Hugging
 Face. The download sends no recordings. Models are stored locally and can
 be removed in Settings.
 If you configure a transcription provider,
-Conch holds the audio temporarily on the device and sends it to that provider
+TermSail holds the audio temporarily on the device and sends it to that provider
 over HTTPS or a TLS WebSocket only when you tap <strong>Transcribe</strong>. The provider handles
-the audio under its privacy policy. Conch uses the API key to authenticate to the
+the audio under its privacy policy. TermSail uses the API key to authenticate to the
 configured provider. The saved key is encrypted with Android Keystore and excluded
 from backups.
 You can remove it in Settings. A transcript enters your draft only after confirmation.</li>
-<li><strong>Dictation history (optional):</strong> if enabled in Settings, Conch encrypts the last 25
+<li><strong>Dictation history (optional):</strong> if enabled in Settings, TermSail encrypts the last 25
 distinct transcripts that you explicitly add to a draft. History contains
 text only, stays on the device and is excluded from backups. Turning
 it off stops new entries. Clear the saved entries through Settings.</li>
 </ul>
-<p>Conch asks for no location, contacts, storage or phone permissions. Choose files and
+<p>TermSail asks for no location, contacts, storage or phone permissions. Choose files and
 images through Android's file picker, or paste an image into an Agent reply.</p>
 <h2>Purchases</h2>
-<p>Conch Pro is bought through Google Play. Google processes the payment under its own privacy
-policy; Conch only learns whether the purchase exists.</p>
+<p>TermSail Pro is bought through Google Play. Google processes the payment under its own privacy
+policy; TermSail only learns whether the purchase exists.</p>
 <h2>Children</h2>
-<p>Conch is a tool for administering servers and is not directed at children.</p>
+<p>TermSail is a tool for administering servers and is not directed at children.</p>
 <h2>Contact</h2>
 <p>zentaostudio@gmail.com</p>
 <p class="foot">ZenTao Studio · Tools that just work.</p></div></body></html>
