@@ -27,8 +27,8 @@
 </style></head><body><div class="wrap">
 <div class="brand"><img src="icon.png" alt=""><b>Conch</b></div>
 <h1>Conch — Privacy Policy</h1>
-<p><em>Last updated: 2026-11-01 · Publisher: ZenTao Studio</em></p>
-<p>Conch is an SSH terminal and SFTP client. Short version: <strong>Conch collects nothing about you.</strong>
+<p><em>Last updated: 2026-11-21 · Publisher: ZenTao Studio</em></p>
+<p>Conch is an SSH terminal and SFTP client. <strong>ZenTao Studio receives no user data from Conch.</strong>
 It has no account, no ads, no analytics and no crash-reporting SDKs.</p>
 <h2>What Conch sends, and to whom</h2>
 <p>Conch only opens connections that <strong>you</strong> ask for:</p>
@@ -36,18 +36,99 @@ It has no account, no ads, no analytics and no crash-reporting SDKs.</p>
 <li><strong>SSH and SFTP:</strong> to the servers you add or type, on the port you set, and to a jump host if you
 configured one. Everything in these connections is encrypted by the SSH protocol end to end
 between your phone and your server.</li>
+<li><strong>Mosh:</strong> if you switch a session to Mosh, Conch uses SSH to start the remote Mosh server.
+The terminal then exchanges encrypted UDP traffic with that server. It can continue using
+the same remote shell when the phone changes networks and can still reach the server.</li>
 <li><strong>Port forwarding:</strong> to the destinations you configured, through your own server.</li>
+<li><strong>Optional Android preview:</strong> the selected host helper streams the screen
+of an approved emulator or USB Android device to the app over SSH. Your
+taps, drags and navigation commands go to that device through the same
+connection. Text you submit from the paste dialog goes to the approved emulator's clipboard
+over SSH for insertion into the focused field.
+Conch does not save the stream as a recording.</li>
+<li><strong>Pairing with key enrollment:</strong> when requested, Conch generates an SSH key on the phone
+and sends its public part over a temporary connection to your chosen server. The connection
+uses the certificate fingerprint from the pairing code. The private key stays in the vault.</li>
+<li><strong>Agent conversations:</strong> with the optional host helper, Conch reads recent conversation text
+and sends the replies, images, answers and tool decisions you choose over the existing SSH
+connection. The coding agent on your host handles these according to its configuration,
+including any model provider you use. Conch reads a clipboard image only when you tap
+<strong>Paste image</strong>. Unsubmitted Agent reply drafts and added images stay in app memory.
+After you submit a reply, answer, or approval decision, Conch
+keeps the pending operation encrypted on this device with an Android Keystore key.
+You can review the pending action from the host's Inbox, including after the Agent task
+stops, and explicitly retry. Conch clears the record when it receives a final receipt or you
+discard it. These records are excluded from backups.
+The optional host helper also keeps receipt metadata and request hashes on your SSH
+host for recovery. It checks the Agent's own history when it needs to confirm delivery.
+For eligible Claude file restores, the helper records a file digest on the host to
+verify an original binary backup. The digest is used only for local restore verification.</li>
+<li><strong>Agent usage</strong> can query rate limits through Codex, Pi or OpenCode on your SSH host.
+For a ChatGPT subscription in Pi or OpenCode 2, the host sends a read-only HTTPS request
+to ChatGPT using that agent's existing login. Conch receives usage windows, available
+account labels, OpenCode Console budget data and an opaque account key over SSH.
+The provider credential stays on the host.</li>
+<li><strong>Optional push notifications:</strong> if you enable a UnifiedPush distributor, Conch sends
+its subscription to your selected SSH host over SSH. The host sends an encrypted event
+containing a random event ID, status, timestamp and, when applicable, a flag for
+terminal-only tasks to the distributor's push server.
+That server can see routing metadata and delivery timing. Terminal output, conversation
+text, file paths and SSH credentials are excluded from the push payload. Your distributor
+and its push server follow their own privacy policies. You can turn off push in Conch.
+If multiple Android devices enable push on the same SSH host account, the host encrypts
+and sends a copy separately for each device. It stores a random registration ID and
+separate subscription for each. Turning off push on a connected device removes that
+device's subscription from the host.</li>
+<li><strong>Optional host webhooks:</strong> when you configure a webhook on your own SSH host, the Linux
+helper sends attention and completion notices over HTTPS to the Slack, Discord or custom
+destination you choose. Slack and Discord receive a fixed status message. A custom endpoint
+also receives a random event ID and event timestamp. The host stores the destination URL
+in a private local file. You can remove it and clear its pending queue on the host. The
+selected destination's privacy policy applies.</li>
+<li><strong>Optional CI and cron notifications:</strong> the host helper can accept a title and
+message from a job you authorize. These are queued on your own host and
+delivered to Android through the same encrypted push channel. Android displays
+them as private notifications. The host keeps a token hash and recent delivery
+IDs for authentication and duplicate detection. Revoke the token on the host
+to clear pending external alerts.
+A job can include a pinned tmux or Herdr target in the encrypted notice.
+Conch uses the saved SSH address, account and host fingerprint to open that
+terminal after a tap. The local recovery entry retains that binding.
+When the host operator enables an image origin and the job sends a screenshot
+link, its URL travels in the encrypted notice. Android fetches the image
+directly over HTTPS from the approved origin. That server receives the request
+and can see the device's network address and timing.</li>
 </ul>
 <p>Zentao Studio runs no servers that Conch talks to and receives none of this traffic.</p>
 <h2>What stays on your phone</h2>
-<p>Your hosts, keys, passwords, passphrases, snippets, trusted server fingerprints and settings.
-Passwords, private keys and passphrases are encrypted with a key held by the Android Keystore.
+<p>Your hosts, keys, passwords, passphrases, snippets, public SSH certificates, directory bookmarks, trusted server fingerprints and settings.
+Passwords, private keys, passphrases and Conch's saved push subscription are encrypted with a
+key held by the Android Keystore.
+An optional biometric SSH key is generated in hardware-backed Android Keystore on supported
+devices. Android handles biometric verification for each SSH signature. Conch receives
+the authorization result and has no access to biometric samples or templates. The private
+key stays on the device. Conch backups include its public entry and host references.
 All of it is excluded from Android cloud backup. It leaves the phone only if you export a
 backup file yourself; that file is encrypted with a password you choose, and Zentao Studio never
-sees it. Uninstalling Conch removes its private local data. Files explicitly exported
-remain at their chosen locations.</p>
-<p>Session recovery stores host references and a tmux session name, not terminal output or typed
-commands. After a process restart, you choose whether to reconnect.</p>
+sees it. Uninstalling Conch removes its private local data.</p>
+<p>You may explicitly remember a command in the composer. This optional history is encrypted
+locally, limited to 100 commands per host, clearable, and excluded from exported backups.
+Conch does not automatically record raw terminal input, password prompts or shell output.
+Terminal search keeps a rendered text snapshot in memory; copying or exporting it is an
+explicit action. Exported text is plaintext at the location you choose. Remote editor drafts, including their original file bytes for conflict checks, are stored
+locally under a separate Android Keystore AES-GCM key, outside Android and exported backups.
+They remain until you save to the server or explicitly discard them; up to 32 drafts can be
+kept, with a 512 KiB UTF-8 limit per edited document. Recovery is bound to the saved host and
+its server/account, and never uploads automatically. Edits newer than the last completed
+local save may be lost if the process is killed. Composer drafts stay in memory and are lost
+when the process ends.</p>
+<p>The Settings draft manager retains drafts even after their hosts are deleted. You can
+explicitly export edited text using Android's file picker; this creates an unencrypted copy
+at the location you choose. Discard removes only the local recovery copy, never the remote
+file. Files you explicitly export remain at their chosen locations after uninstalling Conch.</p>
+<p>Session recovery stores host references and tmux, Herdr or Zellij target identifiers.
+Zellij recovery also stores the selected server generation and verified SSH fingerprint.
+After a process restart, you choose whether to reconnect.</p>
 <p>The transfer queue stores the source/destination paths, selected file URIs, progress and error
 state. Uploads may be staged as private local copies; downloads use private temporary files
 before saving to the location you chose. Interrupted copies remain available for retry until
@@ -58,24 +139,36 @@ may leave a hidden <code>.conch-…part</code> file in the selected remote folde
 It protects access to the interface; it does not turn imported SSH keys into hardware-backed
 signing keys. Your selected keyboard may provide dictation or suggestions under its own
 privacy policy; Conch does not run a speech or hosted AI service.</p>
-<h2>Remote editor drafts</h2>
-<p>Remote editor drafts and their original bytes for conflict checks are encrypted locally
-with an Android Keystore AES-GCM key, outside Android and exported backups. Up to 32 drafts
-are retained until you save to the server or explicitly discard them; each edited document
-is limited to 512 KiB of UTF-8. Recovery is bound to its saved host and server/account and
-never uploads automatically. Edits newer than the last completed local save may be lost
-if the process is killed. Composer drafts remain in memory only. The Settings draft manager
-retains access to drafts from deleted hosts. Explicit text export creates an unencrypted copy
-at the chosen location; discarding removes only the local recovery copy.</p>
 <h2>Permissions</h2>
 <ul>
 <li><strong>Internet:</strong> to connect to your servers.</li>
+<li><strong>Local network (Android 17 and later):</strong> to connect to a host on your local
+network when you choose to connect. Conch uses the address you select and
+does not scan for nearby devices.</li>
 <li><strong>Foreground service and notifications:</strong> to keep open sessions connected while you use other
 apps, and to show the &quot;sessions open&quot; notification with a Disconnect button.</li>
-<li><strong>Wake lock (optional setting):</strong> to help reduce interruptions in deep sleep, at a battery cost.
-Conch asks for no location, contacts, storage, camera, microphone or phone permissions. Files you
-upload or download are chosen by you through Android's file picker.</li>
+<li><strong>Wake lock (optional setting):</strong> to help reduce interruptions in deep sleep, at a battery cost.</li>
+<li><strong>Biometrics (optional):</strong> to approve a signature when connecting with a biometric SSH key.</li>
+<li><strong>Camera (optional):</strong> to scan a host pairing QR code when you tap Scan QR code. Camera frames and selected QR images are processed on the device and are never saved or uploaded. You can also paste a pairing code or choose a QR image without granting camera access.</li>
+<li><strong>Microphone (optional):</strong> when you start dictation. Android's on-device recognition
+and the offline Whisper and Parakeet engines keep recordings on the device.
+If you choose to install an offline model, Conch downloads it from Hugging
+Face. The download sends no recordings. Models are stored locally and can
+be removed in Settings.
+If you configure a transcription provider,
+Conch holds the audio temporarily on the device and sends it to that provider
+over HTTPS or a TLS WebSocket only when you tap <strong>Transcribe</strong>. The provider handles
+the audio under its privacy policy. Conch uses the API key to authenticate to the
+configured provider. The saved key is encrypted with Android Keystore and excluded
+from backups.
+You can remove it in Settings. A transcript enters your draft only after confirmation.</li>
+<li><strong>Dictation history (optional):</strong> if enabled in Settings, Conch encrypts the last 25
+distinct transcripts that you explicitly add to a draft. History contains
+text only, stays on the device and is excluded from backups. Turning
+it off stops new entries. Clear the saved entries through Settings.</li>
 </ul>
+<p>Conch asks for no location, contacts, storage or phone permissions. Choose files and
+images through Android's file picker, or paste an image into an Agent reply.</p>
 <h2>Purchases</h2>
 <p>Conch Pro is bought through Google Play. Google processes the payment under its own privacy
 policy; Conch only learns whether the purchase exists.</p>
